@@ -1,0 +1,4 @@
+console.log("ola mundo");
+console.log("Seja bem vindo ao FloripaScript, o NodeJS se fosse bom");
+
+console.log("Por enquanto a unica coisa que da pra fazer é console log");
