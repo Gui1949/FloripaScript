@@ -1,4 +1,6 @@
-console.log("ola mundo");
-console.log("Seja bem vindo ao FloripaScript, o NodeJS se fosse bom");
+console.log("FLS - Somar dois numeros");
 
-console.log("Por enquanto a unica coisa que da pra fazer é console log");
+let num1 = 444;
+let num2 = 666;
+
+sum();

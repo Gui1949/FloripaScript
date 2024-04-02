@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "*.fls": "javascript",
     "xstring": "cpp",
     "cctype": "cpp",
     "compare": "cpp",
@@ -52,6 +53,12 @@
     "map": "cpp",
     "xhash": "cpp",
     "xtree": "cpp",
-    "*.fls": "javascript"
-  }
+    "list": "cpp",
+    "vector": "cpp",
+    "unordered_map": "cpp",
+    "fstream": "cpp",
+    "functional": "cpp",
+    "numeric": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
