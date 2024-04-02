@@ -58,7 +58,11 @@
     "unordered_map": "cpp",
     "fstream": "cpp",
     "functional": "cpp",
-    "numeric": "cpp"
+    "numeric": "cpp",
+    "algorithm": "cpp",
+    "array": "cpp",
+    "optional": "cpp",
+    "sstream": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

@@ -4,10 +4,16 @@ O FloripaScript (FLS) tem como propósito atuar como uma linguagem interpretada 
 
 Para executar um arquivo .fls, é necessário compilar e executar o arquivo ```/modules/compiler/main.cpp```.
 
-É possível realizar um print no terminal via ```main.fls```:
+É possível declarar uma variável com ```let``` e tambem fazer um HTTP GET (necessário ter o CURL instalado na máquina): ```main.fls```:
 
 ```
-console.log("Olá mundo!");
+let url = "https://bar-do-jeiz.onrender.com/data";
+
+let response = network.get(url);
+
+//Requisição WEB GET!!
+
+console.log(response);
 ```
 
-Ao executar, o compiler e depois o arquivo em ```/out/compiled.cpp```, será exibido "Olá mundo!".
+Ao executar, o compiler e depois o arquivo em ```/out/compiled.cpp```, será exibida no console a resposta da requisição!

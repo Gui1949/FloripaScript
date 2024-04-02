@@ -1,1 +1,7 @@
-console.log("Teste compilador show de bola");
+let url = "https://bar-do-jeiz.onrender.com/data";
+
+let response = network.get(url);
+
+//Requisição WEB GET!!
+
+console.log(response);
