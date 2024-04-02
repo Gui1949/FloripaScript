@@ -1,6 +1,1 @@
-console.log("FLS - Somar dois numeros");
-
-let num1 = 444;
-let num2 = 666;
-
-sum();
+console.log("Teste compilador show de bola");
