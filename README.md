@@ -4,4 +4,15 @@ O FloripaScript (FLS) tem como propósito atuar como uma linguagem interpretada 
 
 Para executar um arquivo .fls, é necessário compilar e executar o arquivo ```/modules/compiler/main.cpp```.
 
-O projeto ainda está em fase inicial de desenvolvimento. No momento, a única funcionalidade disponível é o ```console.log```, presente no arquivo ```main.fls```.
+É possível realizar a soma entre duas variáveis da seguinte forma, no arquivo ```main.fls```:
+
+```
+console.log("FLS - Somar dois numeros");
+
+let num1 = 444;
+let num2 = 666;
+
+sum();
+```
+
+Ao executar, será exibido o resultado da soma no terminal.
