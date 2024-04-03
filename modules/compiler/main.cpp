@@ -19,7 +19,9 @@ int main(int argc, char *argv[])
     program = program + "#include <cmath>\n";
     program = program + "#include <iostream>\n";
     program = program + "#include <string>\n";
+    program = program + "#include \"../includes/json.hpp\"\n";
     program = program + "using namespace std;\n";
+    program = program + "using json = nlohmann::json;\n";
     program = program + "class Console\n";
     program = program + "{\n";
     program = program + "public:\n";
@@ -46,12 +48,22 @@ int main(int argc, char *argv[])
         return body;\
       };\
     };\
-    \n";
-        program = program + "int main()\n";
+    class Json\
+    {\
+    public:\
+      json parse(string json_string)\
+      {\
+        json data = json::parse(json_string);\
+        return data;\
+      };\
+    };\
+    \n ";
+    program = program + "int main()\n";
     program = program + "{\n";
     program = program + "typedef string let; \n";
     program = program + "Console console;\n";
-    program = program + "Network network;;\n";
+    program = program + "Network network;\n";
+    program = program + "Json JSON;\n";
 
     while (getline(myfile, line))
     {
