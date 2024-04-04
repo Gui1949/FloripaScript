@@ -5,8 +5,19 @@
 #include <numeric>
 using namespace std;
 
+class Variables
+{
+public:
+  string replace(string variable, string to_be_replaced, string to_replace)
+  {
+    string response = variable.replace(variable.find(to_be_replaced), to_be_replaced.length(), to_replace);
+    return response;
+  };
+};
+
 int main(int argc, char *argv[])
 {
+  Variables variables;
   string line;
   ifstream myfile("../../main.fls");
 
@@ -56,28 +67,50 @@ int main(int argc, char *argv[])
         json data = json::parse(json_string);\
         return data;\
       };\
-    };\
-    \n ";
-    program = program + "int main()\n";
-    program = program + "{\n";
-    program = program + "typedef string let; \n";
-    program = program + "Console console;\n";
-    program = program + "Network network;\n";
-    program = program + "Json JSON;\n";
+      typedef void (*vFunctionCall)(int args);\
+      void fields(json json_parsed, string obj_name, string final_name)\
+      {\
+        Console console;\
+        int i = 0;\
+        int size = json_parsed[obj_name].size();\
+        while (i < size)\
+        {\
+          console.log(json_parsed[obj_name][i][final_name]);\
+          i++;\
+        }\
+      };\
+      void top(json json_parsed, string obj_name, int top_values)\
+      {\
+        Console console;\
+        int i = 1;\
+        int size = json_parsed[obj_name].size();\
+        while (i < top_values)\
+        {\
+          console.log(json_parsed[obj_name][i]);\
+          i++;\
+        }\
+      }\
+  };\
+  \n ";
+      program = program + "int main()\n";
+  program = program + "{\n";
+  program = program + "typedef string let; \n";
+  program = program + "Console console;\n";
+  program = program + "Network network;\n";
+  program = program + "Json JSON;\n";
 
-    while (getline(myfile, line))
-    {
-      program = program + line + "\n";
-    }
-
-    program = program + "}";
-
-    ofstream out("../../out/compiled.cpp");
-    out << program;
-    out.close();
-
-    myfile.close();
+  while (getline(myfile, line))
+  {
+    program = program + line + "\n";
   }
-  else
-    cout << "Unable to open file";
+
+  program = program + "}";
+  program = variables.replace(program, "[]", "[&console, &JSON]");
+  ofstream out("../../out/compiled.cpp");
+  out << program;
+  out.close();
+
+  myfile.close();
+}
+else cout << "Unable to open file";
 }

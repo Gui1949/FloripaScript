@@ -3,21 +3,89 @@
 O FloripaScript (FLS) tem como propósito atuar como uma linguagem interpretada em C++ com sintaxe similar ao Node.JS.
 
 Para executar um arquivo .fls, é necessário compilar e executar o arquivo ```/modules/compiler/main.cpp```.
+### Variáveis
+Essas são os tipos variáveis disponíveis:
 
-É possível declarar uma variável com ```let``` e tambem fazer um HTTP GET (necessário ter o CURL instalado na máquina) e parsear as informações da response (no arquivo ```main.fls```):
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `let` | `string` | Somente texto |
+| `string` | `string` | Somente texto |
+| `int` | `int` | Somente números inteiros |
+| `auto` | `auto` | Somente funções LAMBDA |
+| `json` | `JSON` | Somente JSON |
+
+Exemplo:
+```
+let foo = "bar";
+```
+
+### Funções
+
+As funções são declaradas somente via variáveis LAMBDA, dessa forma:
+
+```
+auto ola_mundo = []() { 
+    console.log("Olá mundo!");
+    return 0;
+};
+``` 
+
+Todas as funções precisam ter um retorno.
+
+Caso a função tenha um parâmetro, é necessário que ele e seu tipo sejam passados entre os parenteses, exemplo:
+
+```
+auto ola_mundo = [](string oi) { 
+    console.log(oi);
+    return oi;
+};
+```
+
+### Métodos
+
+A seguir, uma lista com os métodos disponíveis no FloripaScript:
+
+#### console
+| Método   | Função       | Uso                           |
+| :------- | :----------- | :---------------------------------- |
+| `log` | `Print no console` | ```console.log("Olá mundo!")``` |
+
+#### network
+
+| Método   | Função       | Uso                           |
+| :------- | :----------- | :---------------------------------- |
+| `get` | `Requisição HTTP GET` | ```network.get("https://google.com");``` |
+
+#### json
+
+| Método   | Função       | Uso                           |
+| :------- | :----------- | :---------------------------------- |
+| `parse` | `Transformar JSON em string em objeto` | ```JSON.parse(data);``` |
+| `fields` | `Mostrar valor de um objeto especifico em um JSON (já parseado)` | ```JSON.fields(data,"json","obj");``` |
+| `top` | `Mostrar os primeiros X elementos em um JSON com array` | ```JSON.top(data, "json", 5);``` |
+
+#### variables
+
+| Método   | Função       | Uso                           |
+| :------- | :----------- | :---------------------------------- |
+| `replace` | `Substituir texto` | ```variables.replace(variavel, "ola_mundo", "mundo_ola");``` |
+
+### Exemplo
 
 ```
 let url = "https://bar-do-jeiz.onrender.com/data";
 let response = network.get(url);
-int i = 0;
 json data = JSON.parse(response);
-int tamanho = data["data"].size();
 
-while (i < tamanho)
-{
-    console.log(data["data"][i]["POST_DESC"]);
-    i++;
-}
+auto top_bar = [](json data) { 
+    console.log("Exibindo os 5 primeiros posts do Bar do Jeiz");
+    JSON.top(data, "data", 5);
+    return 0;
+};
+
+top_bar(data);
 ```
 
-Ao executar, o compiler e depois o arquivo em ```/out/compiled.cpp```, será exibida a propriedade ```POST_DESC``` de cada linha da response.
+### Execução
+
+Para executar um script em FLS, é necessário compilar e executar o arquivo ```/modules/compiler/main.cpp``` e depois o arquivo ```/out/comipled.cpp```.

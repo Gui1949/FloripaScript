@@ -65,7 +65,9 @@
     "sstream": "cpp",
     "chrono": "cpp",
     "ranges": "cpp",
-    "span": "cpp"
+    "span": "cpp",
+    "valarray": "cpp",
+    "filesystem": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled",
   "workbench.colorCustomizations": {},

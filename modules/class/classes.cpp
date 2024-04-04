@@ -41,6 +41,45 @@ public:
         json data = json::parse(json_string);
         return data;
     };
+
+    typedef void (*vFunctionCall)(int args);
+
+    void fields(json json_parsed, string obj_name, string final_name)
+    {
+        Console console;
+
+        int i = 0;
+
+        int size = json_parsed[obj_name].size();
+
+        while (i < size)
+        {
+            console.log(json_parsed[obj_name][i][final_name]);
+            i++;
+        }
+    };
+
+    void top(json json_parsed, string obj_name, int top_values)
+    {
+        Console console;
+        int i = 1;
+        int size = json_parsed[obj_name].size();
+        while (i < top_values)
+        {
+            console.log(json_parsed[obj_name][i]);
+            i++;
+        }
+    }
+};
+
+class Variables
+{
+public:
+    string replace(string variable, string to_be_replaced, string to_replace)
+    {
+        string response = variable.replace(variable.find(to_be_replaced), to_be_replaced.length(), to_replace);
+        return response;
+    };
 };
 
 int main()
@@ -48,6 +87,7 @@ int main()
     typedef string let;
     Console console;
     Network network;
+    Variables variables;
     Json JSON;
 
     let url = "https://bar-do-jeiz.onrender.com/data";
@@ -56,13 +96,18 @@ int main()
 
     json data = JSON.parse(response);
 
-    int i = 0;
+    let teste = "CARLITO";
 
-    int tamanho = data["data"].size();
+    teste = variables.replace(teste, "CAR", "CARL");
 
-    while (i < tamanho)
+    auto carlos = [&console, &JSON](json data)
     {
-        console.log(data["data"][i]["POST_DESC"]);
-        i++;
-    }
+        console.log("Exibindo os 5 primeiros posts do Bar do Jeiz");
+
+        JSON.top(data, "data", 5);
+
+        return 0;
+    };
+
+    carlos(data);
 }

@@ -1,11 +1,9 @@
 let url = "https://bar-do-jeiz.onrender.com/data";
 let response = network.get(url);
-int i = 0;
 json data = JSON.parse(response);
-int tamanho = data["data"].size();
-
-while (i < tamanho)
-{
-    console.log(data["data"][i]["POST_DESC"]);
-    i++;
-}
+auto carlos = [](json data) { 
+    console.log("Exibindo os 5 primeiros posts do Bar do Jeiz");
+    JSON.top(data, "data", 5);
+    return 0;
+};
+console.log(carlos(data));
