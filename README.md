@@ -61,14 +61,13 @@ A seguir, uma lista com os métodos disponíveis no FloripaScript:
 | Método   | Função       | Uso                           |
 | :------- | :----------- | :---------------------------------- |
 | `parse` | `Transformar JSON em string em objeto` | ```JSON.parse(data);``` |
-| `fields` | `Mostrar valor de um objeto especifico em um JSON (já parseado)` | ```JSON.fields(data,"json","obj");``` |
-| `top` | `Mostrar os primeiros X elementos em um JSON com array` | ```JSON.top(data, "json", 5);``` |
 
 #### variables
 
 | Método   | Função       | Uso                           |
 | :------- | :----------- | :---------------------------------- |
 | `replace` | `Substituir texto` | ```variables.replace(variavel, "ola_mundo", "mundo_ola");``` |
+| `concat` | `Concatenar texto` | ```variables.concat("ola","mundo");``` |
 
 ### Exemplo
 
@@ -76,16 +75,19 @@ A seguir, uma lista com os métodos disponíveis no FloripaScript:
 let url = "https://bar-do-jeiz.onrender.com/data";
 let response = network.get(url);
 json data = JSON.parse(response);
-
-auto top_bar = [](json data) { 
-    console.log("Exibindo os 5 primeiros posts do Bar do Jeiz");
-    JSON.top(data, "data", 5);
-    return 0;
+auto carlos = [](json data) { 
+        console.log("Exibindo o primeiro post do Bar do Jeiz");
+        console.log(variables.concat("Username: ", data["data"][0]["USERNAME"]));
+        console.log(variables.concat("Postagem: ", data["data"][0]["POST_DESC"]));
 };
-
-top_bar(data);
+carlos(data);
 ```
 
 ### Execução
 
 Para executar um script em FLS, é necessário compilar e executar o arquivo ```/modules/compiler/main.cpp``` e depois o arquivo ```/out/comipled.cpp```.
+
+### Extensão VSCODE
+
+* [FloripaScript Extension](https://marketplace.visualstudio.com/items?itemName=GuilhermeFloriano.floripascript-extension)
+
