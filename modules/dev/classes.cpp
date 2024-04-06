@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include "../../includes/json.hpp"
+
+#define function auto
+
 using namespace std;
 using json = nlohmann::json;
 
@@ -71,7 +74,7 @@ int main()
 
     teste = variables.replace(teste, "CAR", "CARL");
 
-    auto carlos = [&console, &JSON](json data)
+    function carlos = [&console, &JSON](json data)
     {
         console.log("Exibindo os 5 primeiros posts do Bar do Jeiz");
 

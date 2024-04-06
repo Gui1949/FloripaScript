@@ -22,7 +22,6 @@ public:
     void log(T text) { std::cout << text << std::endl; }
 };
 
-
 int main(int argc, char *argv[])
 {
   Variables variables;

@@ -1,9 +1,11 @@
 let url = "https://bar-do-jeiz.onrender.com/data";
 let response = network.get(url);
 json data = JSON.parse(response);
-auto carlos = [](json data) { 
+
+function carlos = [](json data) { 
         console.log("Exibindo o primeiro post do Bar do Jeiz");
         console.log(variables.concat("Username: ", data["data"][0]["USERNAME"]));
         console.log(variables.concat("Postagem: ", data["data"][0]["POST_DESC"]));
 };
+
 carlos(data);

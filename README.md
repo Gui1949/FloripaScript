@@ -1,6 +1,8 @@
 # FloripaScript (FLS)
 
-O FloripaScript (FLS) tem como propósito atuar como uma linguagem interpretada em C++ com sintaxe similar ao Node.JS.
+O FloripaScript (FLS) é uma linguagem de programação que combina a simplicidade e flexibilidade de linguagens interpretadas com a robustez e desempenho do C++.
+
+Em outras palavras, é como se você tivesse o poder do C++ com a facilidade de uso de linguagens como Python ou Javascript.
 
 ### Variáveis
 Essas são os tipos variáveis disponíveis:
@@ -10,7 +12,7 @@ Essas são os tipos variáveis disponíveis:
 | `let` | `string` | Somente texto |
 | `string` | `string` | Somente texto |
 | `int` | `int` | Somente números inteiros |
-| `auto` | `auto` | Somente funções LAMBDA |
+| `function` | `auto` | Somente funções LAMBDA |
 | `json` | `JSON` | Somente JSON |
 
 Exemplo:
@@ -23,7 +25,7 @@ let foo = "bar";
 As funções são declaradas somente via variáveis LAMBDA, dessa forma:
 
 ```
-auto ola_mundo = []() { 
+function ola_mundo = []() { 
     console.log("Olá mundo!");
     return 0;
 };
@@ -34,7 +36,7 @@ Todas as funções precisam ter um retorno.
 Caso a função tenha um parâmetro, é necessário que ele e seu tipo sejam passados entre os parenteses, exemplo:
 
 ```
-auto ola_mundo = [](string oi) { 
+function ola_mundo = [](string oi) { 
     console.log(oi);
     return oi;
 };

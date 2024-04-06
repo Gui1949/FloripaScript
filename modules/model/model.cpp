@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include "../includes/json.hpp"
+
+#define function auto
+
 using namespace std;
 using json = nlohmann::json;
 
