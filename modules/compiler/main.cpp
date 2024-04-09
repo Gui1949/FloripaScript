@@ -43,17 +43,15 @@ int main(int argc, char *argv[])
 
     if (classFile.is_open())
     {
-
       string modelLines = "";
       program = variables.replace(program, "[]", "[&console, &JSON, &variables]");
 
       while (getline(classFile, line))
       {
         modelLines += line + "\n";
-        console.log(modelLines);
       }
 
-      string finalLines = variables.replace(modelLines, "//INSERT", program);
+      string finalLines = variables.replace(modelLines, "// INSERT", program);
 
       ofstream out("../../out/compiled.cpp");
       out << finalLines;

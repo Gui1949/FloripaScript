@@ -36,16 +36,6 @@ public:
     };
 };
 
-class Json
-{
-public:
-    json parse(string json_string)
-    {
-        json data = json::parse(json_string);
-        return data;
-    };
-};
-
 class Variables
 {
 public:
@@ -54,6 +44,38 @@ public:
         string response = variable.replace(variable.find(to_be_replaced), to_be_replaced.length(), to_replace);
         return response;
     };
+    string concat(string param1, string param2)
+    {
+        Console console;
+        string response = string(param1).append(param2);
+        return response;
+    };
+};
+
+class Json
+{
+public:
+    json parse(string json_string)
+    {
+        json data = json::parse(json_string);
+        return data;
+    };
+    
+    template <typename Function>
+    void map(json json_parsed, Function func)
+    {
+        Console console;
+        Variables variables;
+
+        int qty = json_parsed.size();
+        int i = 0;
+
+        while (i < qty)
+        {
+            func(json_parsed, i);
+            i++;
+        }
+    }
 };
 
 int main()
@@ -74,16 +96,13 @@ int main()
 
     teste = variables.replace(teste, "CAR", "CARL");
 
-    function carlos = [&console, &JSON](json data)
+    function carlos = [&console, &JSON, &variables](json json_parsed, int i)
     {
-        console.log("Exibindo os 5 primeiros posts do Bar do Jeiz");
-
-        console.log(data["data"][0].size());
-
-        
-
-        return 0;
+        console.log(variables.concat("Username: ", json_parsed[i]["USERNAME"]));
+        console.log(variables.concat("Postagem: ", json_parsed[i]["POST_DESC"]));
+        console.log("------------------------------------------------------------------------");
+        console.log(" ");
     };
 
-    carlos(data);
+    JSON.map(data["data"], carlos);
 }

@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include "../includes/json.hpp"
+
+#define function auto
+
 using namespace std;
 using json = nlohmann::json;
 
@@ -41,6 +44,21 @@ public:
         json data = json::parse(json_string);
         return data;
     };
+        template <typename Function>
+    void map(json json_parsed, Function func)
+    {
+        Console console;
+        Variables variables;
+
+        int qty = json_parsed.size();
+        int i = 0;
+
+        while (i < qty)
+        {
+            func(json_parsed, i);
+            i++;
+        }
+    };
 };
 
 class Variables
@@ -68,13 +86,16 @@ int main()
     Json JSON;
 
     let url = "https://bar-do-jeiz.onrender.com/data";
-    let response = network.get(url);
-    json data = JSON.parse(response);
-    auto carlos = [&console, &JSON, &variables](json data)
-    {
-        console.log("Exibindo o primeiro post do Bar do Jeiz");
-        console.log(variables.concat("Username: ", data["data"][0]["USERNAME"]));
-        console.log(variables.concat("Postagem: ", data["data"][0]["POST_DESC"]));
-    };
-    carlos(data);
+let response = network.get(url);
+json data = JSON.parse(response);
+
+function carlos = [&console, &JSON, &variables](json json_parsed, int i){
+        console.log(variables.concat("Username: ", json_parsed[i]["USERNAME"]));
+        console.log(variables.concat("Postagem: ", json_parsed[i]["POST_DESC"]));
+        console.log("------------------------------------------------------------------------");
+        console.log(" ");
+};
+
+JSON.map(data["data"], carlos);
+
 }

@@ -44,6 +44,21 @@ public:
         json data = json::parse(json_string);
         return data;
     };
+        template <typename Function>
+    void map(json json_parsed, Function func)
+    {
+        Console console;
+        Variables variables;
+
+        int qty = json_parsed.size();
+        int i = 0;
+
+        while (i < qty)
+        {
+            func(json_parsed, i);
+            i++;
+        }
+    };
 };
 
 class Variables
