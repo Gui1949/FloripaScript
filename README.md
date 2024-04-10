@@ -8,13 +8,12 @@ Em outras palavras, é como se você tivesse o poder do C++ com a facilidade de 
 
 Essas são os tipos variáveis disponíveis:
 
-| Parâmetro  | Tipo     | Descrição                |
-| :--------- | :------- | :----------------------- |
-| `let`      | `string` | Somente texto            |
-| `string`   | `string` | Somente texto            |
-| `int`      | `int`    | Somente números inteiros |
-| `function` | `auto`   | Somente funções LAMBDA   |
-| `json`     | `JSON`   | Somente JSON             |
+| Parâmetro | Tipo     | Descrição                |
+| :-------- | :------- | :----------------------- |
+| `let`     | `string` | Somente texto            |
+| `string`  | `string` | Somente texto            |
+| `int`     | `int`    | Somente números inteiros |
+| `json`    | `JSON`   | Somente JSON             |
 
 Exemplo:
 
@@ -24,7 +23,7 @@ let foo = "bar";
 
 ### Funções
 
-As funções são declaradas somente via variáveis LAMBDA, dessa forma:
+As funções são declaradas da seguinte forma:
 
 ```
 function ola_mundo = []() {
@@ -50,29 +49,29 @@ A seguir, uma lista com os métodos disponíveis no FloripaScript:
 
 #### console
 
-| Método | Função             | Uso                         |
-| :----- | :----------------- | :-------------------------- |
-| `log`  | `Print no console` | `console.log("Olá mundo!")` |
+| Método | Função             | Uso                   | Exemplo                      |
+| :----- | :----------------- | :-------------------- | :--------------------------- |
+| `log`  | `Print no console` | `console.log(string)` | `console.log("Olá mundo!");` |
 
 #### network
 
-| Método | Função                | Uso                                  |
-| :----- | :-------------------- | :----------------------------------- |
-| `get`  | `Requisição HTTP GET` | `network.get("https://google.com");` |
+| Método | Função                | Uso                    | Exemplo                              |
+| :----- | :-------------------- | :--------------------- | ------------------------------------ |
+| `get`  | `Requisição HTTP GET` | `network.get(string);` | `network.get("https://google.com");` |
 
 #### json
 
-| Método  | Função                                   | Uso                                       |
-| :------ | :--------------------------------------- | :---------------------------------------- |
-| `parse` | `Transformar JSON em string em objeto`   | `JSON.parse(data);`                       |
-| `map`   | `Loop em cada elemento de um JSON Array` | `JSON.map(data, callback_function_name);` |
+| Método  | Função                                   | Uso                         | Exemplo                        |
+| :------ | :--------------------------------------- | :-------------------------- | ------------------------------ |
+| `parse` | `Transformar JSON em string em objeto`   | `JSON.parse(string);`       | `JSON.parse({"data": "ola"});` |
+| `map`   | `Loop em cada elemento de um JSON Array` | `JSON.map(json, function);` | `JSON.map(data, funcao);`      |
 
 #### variables
 
-| Método    | Função             | Uso                                                      |
-| :-------- | :----------------- | :------------------------------------------------------- |
-| `replace` | `Substituir texto` | `variables.replace(variavel, "ola_mundo", "mundo_ola");` |
-| `concat`  | `Concatenar texto` | `variables.concat("ola","mundo");`                       |
+| Método    | Função             | Uso                                          | Exemplo                                   |
+| :-------- | :----------------- | :------------------------------------------- | ----------------------------------------- |
+| `replace` | `Substituir texto` | `variables.replace(string, string, string);` | `variables.replace(ola, "ola", "mundo");` |
+| `concat`  | `Concatenar texto` | `variables.concat(string, string);`          | `variables.concat("ola", "mundo");`       |
 
 ### Exemplo
 

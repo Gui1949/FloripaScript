@@ -13,6 +13,18 @@ class Console
 public:
     template <typename T>
     void log(T text) { std::cout << text << std::endl; }
+    string input(string text)
+    {
+        Console console;
+
+        console.log(text);
+
+        char tmp[101];
+        scanf("%100s", tmp);
+        string response = tmp;
+
+        return response;
+    }
 };
 
 class Network
@@ -60,7 +72,7 @@ public:
         json data = json::parse(json_string);
         return data;
     };
-    
+
     template <typename Function>
     void map(json json_parsed, Function func)
     {
@@ -105,4 +117,11 @@ int main()
     };
 
     JSON.map(data["data"], carlos);
+
+    let nome = console.input("Insira o nome:");
+    let sobrenome = console.input("Insira o sobrenome:");
+
+    let final = nome + " " + sobrenome;
+
+    console.log(final);
 }

@@ -98,4 +98,10 @@ function carlos = [&console, &JSON, &variables](json json_parsed, int i){
 
 JSON.map(data["data"], carlos);
 
+char input = "";
+
+scanf ("%s",input);  
+
+console.log(input);
+
 }
