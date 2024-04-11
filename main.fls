@@ -10,5 +10,3 @@ function carlos = [](json json_parsed, int i){
 };
 
 JSON.map(data["data"], carlos);
-
-scanf("OLA");
