@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     {
       string modelLines = "";
       program = variables.replace(program, "[]", "[&console, &JSON, &variables]");
+      program = variables.replace(program, "===", "<<");
 
       while (getline(classFile, line))
       {

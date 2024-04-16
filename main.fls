@@ -10,3 +10,7 @@ function carlos = [](json json_parsed, int i){
 };
 
 JSON.map(data["data"], carlos);
+
+//TODO: Desobrigar ponto e vírgula;
+//TODO: Colocar barra barra como comentário na extensão;
+//TODO: Variável não funcionar dentro da função;

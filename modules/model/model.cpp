@@ -1,7 +1,9 @@
 #include <cmath>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "../includes/json.hpp"
+
 
 #define function auto
 
@@ -69,10 +71,10 @@ public:
         string response = variable.replace(variable.find(to_be_replaced), to_be_replaced.length(), to_replace);
         return response;
     };
-    string concat(string param1, string param2)
+    string concat(string param1, string param2, string param3)
     {
         Console console;
-        string response = string(param1).append(param2);
+        string response = string(param1).append(param2).append(param3);
         return response;
     };
 };
@@ -80,6 +82,7 @@ public:
 int main()
 {
     typedef string let;
+    typedef ofstream file;
     Console console;
     Network network;
     Variables variables;
