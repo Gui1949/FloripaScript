@@ -30,11 +30,6 @@ int main(int argc, char *argv[])
   ifstream myfile(argv[1]);
   ifstream classFile("../model/model.cpp");
 
-  for (int i = 0; i < argc; ++i)
-  {
-    printf("argv[%d]: %s\n", i, argv[i]);
-  }
-
   if (myfile.is_open())
   {
     int total = 0;
@@ -52,8 +47,6 @@ int main(int argc, char *argv[])
           line += ";";
         }
 
-        console.log(line);
-
         if (line.find("function") == 0)
         {
           int parenteses = line.find("(");
@@ -67,14 +60,6 @@ int main(int argc, char *argv[])
     if (classFile.is_open())
     {
       string modelLines = "";
-      // try
-      // {
-      //   program = variables.replace(program, "===", "<<");
-      // }
-      // catch (exception e)
-      // {
-      //   console.log("erro");
-      // }
 
       while (getline(classFile, line))
       {
