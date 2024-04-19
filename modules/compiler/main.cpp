@@ -18,8 +18,8 @@ public:
 class Console
 {
 public:
-    template <typename T>
-    void log(T text) { std::cout << text << std::endl; }
+  template <typename T>
+  void log(T text) { std::cout << text << std::endl; }
 };
 
 int main(int argc, char *argv[])
@@ -27,8 +27,13 @@ int main(int argc, char *argv[])
   Variables variables;
   Console console;
   string line;
-  ifstream myfile("../../main.fls");
+  ifstream myfile(argv[1]);
   ifstream classFile("../model/model.cpp");
+
+  for (int i = 0; i < argc; ++i)
+  {
+    printf("argv[%d]: %s\n", i, argv[i]);
+  }
 
   if (myfile.is_open())
   {
@@ -38,14 +43,38 @@ int main(int argc, char *argv[])
 
     while (getline(myfile, line))
     {
-      program = program + line + "\n";
+      if (line.length() > 0)
+      {
+        string ponto_virgula = line.substr(line.length() - 1);
+
+        if (ponto_virgula != "{")
+        {
+          line += ";";
+        }
+
+        console.log(line);
+
+        if (line.find("function") == 0)
+        {
+          int parenteses = line.find("(");
+          line = line.replace(parenteses, 1, "= [&console, &variables](");
+        }
+
+        program += line + "\n";
+      }
     }
 
     if (classFile.is_open())
     {
       string modelLines = "";
-      program = variables.replace(program, "[]", "[&console, &JSON, &variables]");
-      program = variables.replace(program, "===", "<<");
+      // try
+      // {
+      //   program = variables.replace(program, "===", "<<");
+      // }
+      // catch (exception e)
+      // {
+      //   console.log("erro");
+      // }
 
       while (getline(classFile, line))
       {

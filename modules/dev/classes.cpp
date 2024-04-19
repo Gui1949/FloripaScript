@@ -7,7 +7,7 @@
 #define function auto
 
 using namespace std;
-//using json = nlohmann::json;
+// using json = nlohmann::json;
 
 class Console
 {
@@ -65,31 +65,31 @@ public:
     };
 };
 
-class Json
-{
-public:
-    json parse(string json_string)
-    {
-        json data = json::parse(json_string);
-        return data;
-    };
+// class Json
+// {
+// public:
+//     json parse(string json_string)
+//     {
+//         json data = json::parse(json_string);
+//         return data;
+//     };
 
-    template <typename Function>
-    void map(json json_parsed, Function func)
-    {
-        Console console;
-        Variables variables;
+//     template <typename Function>
+//     void map(json json_parsed, Function func)
+//     {
+//         Console console;
+//         Variables variables;
 
-        int qty = json_parsed.size();
-        int i = 0;
+//         int qty = json_parsed.size();
+//         int i = 0;
 
-        while (i < qty)
-        {
-            func(json_parsed, i);
-            i++;
-        }
-    }
-};
+//         while (i < qty)
+//         {
+//             func(json_parsed, i);
+//             i++;
+//         }
+//     }
+// };
 
 int main()
 {
@@ -98,35 +98,44 @@ int main()
     Console console;
     Network network;
     Variables variables;
-    Json JSON;
 
-    let url = "https://bar-do-jeiz.onrender.com/data";
-    let response = network.get(url);
-    json data = JSON.parse(response);
+    let line = "cucucuccuucucuc";
 
-    console.log("Puxando todas as Postagens do Bar do Jeiz de colocando em um arquivo .html");
+    string ponto_virgula = line.substr(line.length() - 1);
 
-    file out("index.html");
-    let string = "";
+          if (ponto_virgula != "{")
+      {
+        line += ";";
+      }
 
-    function carlos = [&console, &JSON, &variables, &string](json json_parsed, int i)
-    {
-        string += variables.concat("<h1>",json_parsed[i]["USERNAME"],"</h1>");
-        string += variables.concat("<p>", json_parsed[i]["POST_DESC"], "</p>");
-        string += variables.concat("<img src='", json_parsed[i]["PIC_LOCAL"], "' />");
-        console.log("------------------------------------------------------------------------");
-        console.log(" ");
-    };
+    console.log(line);
+
+    // let url = "https://bar-do-jeiz.onrender.com/data";
+    // let response = network.get(url);
+    // json data = JSON.parse(response);
+
+    // console.log("Puxando todas as Postagens do Bar do Jeiz de colocando em um arquivo .html");
+
+    // file out("index.html");
+    // let string = "";
+
+    // function carlos = [&console, &JSON, &variables, &string](json json_parsed, int i)
+    // {
+    //     string += variables.concat("<h1>", json_parsed[i]["USERNAME"], "</h1>");
+    //     string += variables.concat("<p>", json_parsed[i]["POST_DESC"], "</p>");
+    //     string += variables.concat("<img src='", json_parsed[i]["PIC_LOCAL"], "' />");
+    //     console.log("------------------------------------------------------------------------");
+    //     console.log(" ");
+    // };
 
     // JSON.map(data["data"], carlos);
 
     // out << string;
     // out.close();
-
 }
 
 // {
-    
+
 //     typedef string let;
 //     Console console;
 //     Network network;

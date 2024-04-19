@@ -1,16 +1,7 @@
-let url = "https://bar-do-jeiz.onrender.com/data";
-let response = network.get(url);
-json data = JSON.parse(response);
+int i = 1
+int dez = 10
 
-function carlos = [](json json_parsed, int i){
-        console.log(variables.concat("Username: ", json_parsed[i]["USERNAME"]));
-        console.log(variables.concat("Postagem: ", json_parsed[i]["POST_DESC"]));
-        console.log("------------------------------------------------------------------------");
-        console.log(" ");
-};
-
-JSON.map(data["data"], carlos);
-
-//TODO: Desobrigar ponto e vírgula;
-//TODO: Colocar barra barra como comentário na extensão;
-//TODO: Variável não funcionar dentro da função;
+while(i <= dez){
+    console.log(i)
+    i++
+}
