@@ -61,10 +61,17 @@ A seguir, uma lista com os métodos disponíveis no FloripaScript:
 int i = 1
 int dez = 10
 
-while(i < dez){
+while(i <= dez){
     console.log(i)
     i++
 }
+
+function contagem(int num1, int num2){
+	int final = num1 + num2
+	console.log(final)
+}
+
+contagem(10,20)
 
 ```
 

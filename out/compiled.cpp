@@ -43,5 +43,10 @@ while(i <= dez){
     console.log(i);
     i++;
 };
+function contagem= [&console, &variables](int num1, int num2){
+	int final = num1 + num2;
+	console.log(final);
+};
+contagem(10,20);
 
 }
