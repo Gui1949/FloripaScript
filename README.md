@@ -46,14 +46,14 @@ A seguir, uma lista com os métodos disponíveis no FloripaScript:
 
 | Método | Função             | Uso                   | Exemplo                      |
 | :----- | :----------------- | :-------------------- | :--------------------------- |
-| `log`  | `Print no console` | `console.log(string)` | `console.log("Olá mundo!");` |
+| `log`  | `Print no console` | `console.log(string)` | `console.log("Olá mundo!")` |
 
 
 #### variables
 
 | Método    | Função             | Uso                                          | Exemplo                                   |
 | :-------- | :----------------- | :------------------------------------------- | ----------------------------------------- |
-| `replace` | `Substituir texto` | `variables.replace(string, string, string);` | `variables.replace(ola, "ola", "mundo");` |
+| `replace` | `Substituir texto` | `variables.replace(string, string, string)` | `variables.replace(ola, "ola", "mundo")` |
 
 ### Exemplo
 
