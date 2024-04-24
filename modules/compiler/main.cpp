@@ -25,7 +25,6 @@ public:
 int main(int argc, char *argv[])
 {
   Variables variables;
-  Console console;
   string line;
   ifstream myfile(argv[1]);
   ifstream classFile("../model/model.cpp");
@@ -47,10 +46,10 @@ int main(int argc, char *argv[])
           line += ";";
         }
 
-        if (line.find("function") == 0)
+        if (line.find("funcao") == 0)
         {
           int parenteses = line.find("(");
-          line = line.replace(parenteses, 1, "= [&console, &variables](");
+          line = line.replace(parenteses, 1, "= [&cmd, &variables](");
         }
 
         program += line + "\n";

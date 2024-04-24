@@ -1,0 +1,13 @@
+cmd.imprimir("ola carlos fonseca")
+
+inteiro um = 1
+inteiro dez = 10
+
+if(um < dez){
+	cmd.imprimir("Realmente um eh menor que dez")
+}
+
+enquanto(um < 10){
+	cmd.imprimir(um)
+	um++
+}

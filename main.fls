@@ -1,14 +1,15 @@
-int i = 1
-int dez = 10
+inteiro i = 1
+inteiro dez = 10
 
-while(i <= dez){
-    console.log(i)
+enquanto(i <= dez){
+    cmd.imprimir(i)
+    cmd.imprimir("ola mundtto")
     i++
 }
 
-function contagem(int num1, int num2){
-	int final = num1 + num2
-	console.log(final)
+funcao contagem(inteiro num1, inteiro num2){
+	inteiro final = num1 + num2
+	cmd.imprimir(final)
 }
 
 contagem(10,20)

@@ -3,7 +3,9 @@
 #include <fstream>
 #include <string>
 
-#define function auto
+#define funcao auto
+#define se if
+#define enquanto while
 
 using namespace std;
 
@@ -11,7 +13,7 @@ class Console
 {
 public:
     template <typename T>
-    void log(T text) { std::cout << text << std::endl; }
+    void imprimir(T text) { std::cout << text << std::endl; }
 };
 
 class Variables
@@ -24,7 +26,7 @@ public:
     };
     string concat(string param1, string param2, string param3)
     {
-        Console console;
+        Console cmd;
         string response = string(param1).append(param2).append(param3);
         return response;
     };
@@ -32,21 +34,20 @@ public:
 
 int main()
 {
-    typedef string let;
-    typedef ofstream file;
-    Console console;
+    typedef string caracter;
+    typedef int inteiro;
+    Console cmd;
     Variables variables;
 
-    int i = 1;
-int dez = 10;
-while(i <= dez){
-    console.log(i);
-    i++;
+    cmd.imprimir("ola carlos fonseca");
+inteiro um = 1;
+inteiro dez = 10;
+if(um < dez){
+	cmd.imprimir("Realmente um eh menor que dez");
 };
-function contagem= [&console, &variables](int num1, int num2){
-	int final = num1 + num2;
-	console.log(final);
+enquanto(um < 10){
+	cmd.imprimir(um);
+	um++;
 };
-contagem(10,20);
 
 }
